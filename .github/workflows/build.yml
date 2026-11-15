@@ -16,8 +16,8 @@ jobs:
         run: |
           mkdir -p project
           unzip -q ancientextra-src.zip -d project
-          ls -la project
-          ls -la project/libs
+          if [ -f overlay.zip ]; then unzip -oq overlay.zip -d project; fi
+          ls project
       - name: Make gradlew executable
         run: chmod +x project/gradlew
       - name: Build
